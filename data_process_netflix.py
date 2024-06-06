@@ -40,7 +40,7 @@ plt.show()
 
 genre_populaire = []
 for g in genre_nb:
-    if genre_nb[g] > 300:
+    if genre_nb[g] > 200:
         genre_populaire.append(g)
 
 annee = netflix_df['release_year'].fillna('Unknown').tolist()
@@ -82,14 +82,14 @@ for year in year_to_del:
 
 #convertir le dictionnaire en DataFrame pour préparer le graphique
 genre_par_annee_df = pd.DataFrame.from_dict(nb_genre_par_annee, orient='index', columns=[
-    'Dramas', 'Dramas_nb', 'Action', 'Action_nb', 'Documentaries', 'Documentaries_nb',
-    'Comedies', 'Comedies_nb', 'Children', 'Children_nb'])
+    'Dramas', 'Dramas_nb', 'Horror Movies', 'Horror_nb', 'Action', 'Action_nb', 'Documentaries', 'Documentaries_nb',
+    'Comedies', 'Comedies_nb', 'Children', 'Children_nb', 'Stand-Up', 'Stand_up_nb'])
 
-genre_par_annee_df = genre_par_annee_df[['Dramas_nb', 'Action_nb', 'Documentaries_nb', 'Comedies_nb', 'Children_nb']]
+genre_par_annee_df = genre_par_annee_df[['Dramas_nb', 'Horror_nb', 'Action_nb', 'Documentaries_nb', 'Comedies_nb', 'Children_nb', 'Stand_up_nb']]
 
 
-#une liste de couleurs : dramas, action, documentaries, comedies, children
-colors = ['grey', 'red', 'green', 'blue', 'yellow']
+#une liste de couleurs : dramas, horror movies, action, documentaries, comedies, children, stand-up
+colors = ['grey', 'red' , 'orange', 'green', 'blue', 'skyblue', 'yellow']
 
 
 #Graphique en barres empilées
@@ -97,6 +97,6 @@ genre_par_annee_df.plot(kind='bar', stacked=True, color=colors, figsize=size)
 plt.xlabel('Année')
 plt.ylabel('Nombre de productions')
 plt.title('Nombre de productions par genre par année en ligne sur Netflix')
-plt.legend(['Drames', 'Action', 'Documentaires', 'Comédies', 'Pour les enfants'], loc='upper left')
+plt.legend(['Drames', 'Horreur', 'Action', 'Documentaires', 'Comédies', 'Pour les enfants', 'Stand-up'], loc='upper left')
 plt.show()
 
