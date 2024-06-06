@@ -25,7 +25,7 @@ plt.barh(genres, nb, color='skyblue')
 plt.xlabel('Nombre de productions')
 plt.ylabel('Genres')
 plt.title('Répartition des genres sur Netflix')
-#plt.show()
+plt.show()
 
 plt.figure(figsize=size)
 plt.barh(genres, nb, color='skyblue')
@@ -34,7 +34,7 @@ plt.ylabel('Genres')
 plt.title('Répartition des genres sur Netflix')
 plt.xscale('log')
 plt.xticks([1,10,100,1000], ['1','10','100','1000'])
-#plt.show()
+plt.show()
 
     #PARMI CES GENRES CERTAINS SONT ILS PLUS LIES A UNE CERTAINE EPOQUE ?
 
@@ -57,9 +57,10 @@ for i, a in enumerate(annee):
         elif a in nb_genre_par_annee.keys():
             if genre[i] in nb_genre_par_annee[a]:         
                 nb_genre_par_annee[a][int(nb_genre_par_annee[a].index(str(genre[i])))+1] +=1
-nb_genre_par_annee = dict(sorted(nb_genre_par_annee.items()))
 
 #Nettoyer le dictionnaire
+nb_genre_par_annee = dict(sorted(nb_genre_par_annee.items()))
+
 year_tick_to_del = 0
 year_to_del = []
 for year in nb_genre_par_annee.keys():
@@ -97,6 +98,5 @@ plt.xlabel('Année')
 plt.ylabel('Nombre de productions')
 plt.title('Nombre de productions par genre par année en ligne sur Netflix')
 plt.legend(['Drames', 'Action', 'Documentaires', 'Comédies', 'Pour les enfants'], loc='upper left')
-#plt.show()
+plt.show()
 
-print(netflix_df['type'])
